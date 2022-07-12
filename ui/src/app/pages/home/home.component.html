@@ -1,0 +1,37 @@
+<div class="header-wrapper">
+  <div class="header-inner">
+    <div class="text-container">
+      <h1>A Web application that allows you to dynamically <br /> build a sentence by selecting words based on their
+        word types. <br /> </h1>
+    </div>
+    <div class="get-started">
+      <select name="types" id="selectedType" (change)="findWords()">
+        <option value="">Select a word type</option>
+        <option *ngFor="let type of wordtypes" [value]="type._id"> {{type.name}}</option>
+      </select>
+      <ng-container *ngIf="wordsFromType && wordsFromType.length > 0">
+        <select name="types" id="selectedWord" (change)="wordChanged()">
+          <option value="">Select a word</option>
+          <option *ngFor="let word of wordsFromType" [value]="word._id"> {{word.name}}</option>
+        </select>
+      </ng-container>
+    </div>
+    <p *ngIf="selectedWord">You chose &nbsp; <span> {{selectedWord}}</span>, you may start building your sentence.</p>
+    <div class="get-started">
+      <input placeholder="Build your sentence here..." *ngIf="selectedWord" [(ngModel)]="sentence" name="word"
+        type="text" />
+      <button class="find-button" (click)="buildSentence()" *ngIf="selectedWord">Build
+        Sentence</button>
+    </div>
+    <div class="wrapper" *ngIf="sentences && sentences.length > 0">
+      <button class="sentences-wrapper" (click)="viewSentences()">View All sentences containing this word</button>
+    </div>
+    <ng-container class="sentences-container" *ngIf="openSentences">
+      <div class="sentence" *ngFor="let sent of sentences">
+        <p>{{sent.sentence}}</p>
+      </div>
+    </ng-container>
+    <div>
+    </div>
+  </div>
+</div>
