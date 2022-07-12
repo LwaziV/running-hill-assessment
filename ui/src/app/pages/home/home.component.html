@@ -24,7 +24,7 @@
         Sentence</button>
     </div>
     <div class="wrapper" *ngIf="sentences && sentences.length > 0">
-      <button class="sentences-wrapper" (click)="viewSentences()">View All sentences containing this word</button>
+      <button class="sentences-wrapper" (click)="viewSentences()">View sentences</button>
     </div>
     <ng-container class="sentences-container" *ngIf="openSentences">
       <div class="sentence" *ngFor="let sent of sentences">

@@ -72,13 +72,13 @@
         }
       }
       p{
-        display: flex;
-    justify-content: center;
-    padding-bottom: 16px;
-    color: #FFF;
-    font-family: "Open Sans";
-          font-style: normal;    
-    width: 100%;
+        display: block;
+        text-align: center;
+        padding-bottom: 16px;
+        color: #FFF;
+        font-family: "Open Sans";
+        font-style: normal;
+        width: 100%;
     span{
       color: black;
       font-weight: bold;
